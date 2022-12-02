@@ -7,10 +7,10 @@ public class GeoTree implements Printer{
         return geoTree;
     }
 
-    public void addRecord(Human person1, String relation, Human person2) {
-        if (relation.equals(Relationship.parents())) {
-            geoTree.add(new Record(person1, Relationship.parents(), person2));
-            geoTree.add(new Record(person2, Relationship.children(), person1));
+    public void addRecord(Human person1, Relationship relation, Human person2) {
+        if (relation.equals(Relationship.PARENTS)) {
+            geoTree.add(new Record(person1, Relationship.PARENTS, person2));
+            geoTree.add(new Record(person2, Relationship.CHILDREN, person1));
         } else {
             geoTree.add(new Record(person1, relation, person2));
             geoTree.add(new Record(person2, relation, person1));

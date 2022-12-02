@@ -7,7 +7,7 @@ public class Research {
         this.geoTree = geoTree.getGeoTree();
     }
 
-    public ArrayList<Human> relationDegree(Human person, String relation) {
+    public ArrayList<Human> relationDegree(Human person, Relationship relation) {
         ArrayList<Human> result = new ArrayList<>();
 
         for (Record record : geoTree) {
