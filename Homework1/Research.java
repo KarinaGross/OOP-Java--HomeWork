@@ -7,8 +7,8 @@ public class Research {
         this.geoTree = geoTree.getGeoTree();
     }
 
-    public ArrayList<Person> relationDegree(Person person, String relation) {
-        ArrayList<Person> result = new ArrayList<>();
+    public ArrayList<Human> relationDegree(Human person, String relation) {
+        ArrayList<Human> result = new ArrayList<>();
 
         for (Record record : geoTree) {
             if ((record.getPerson2() == person) && (record.getRelation().equals(relation))) {

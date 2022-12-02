@@ -1,12 +1,12 @@
 
 public class ClientCode {
     public static void main(String[] args) {
-        Person p1 = new Person("Maria");
-        Person p2 = new Person("Rita");
-        Person p3 = new Person("Oleg");
-        Person p4 = new Person("Vlad");
-        Person p5 = new Person("Serafima");
-        Person p6 = new Person("Sveta");
+        Human p1 = new Person("Maria");
+        Human p2 = new Person("Rita");
+        Human p3 = new Person("Oleg");
+        Human p4 = new Person("Vlad");
+        Human p5 = new Person("Serafima");
+        Human p6 = new Person("Sveta");
 
         GeoTree tree = new GeoTree();
 
@@ -20,6 +20,7 @@ public class ClientCode {
 
         System.out.println(new Research(tree).relationDegree(p1, Relationship.parents()));
         System.out.println(new Research(tree).relationDegree(p2, Relationship.siblings()));
+        tree.print();
     }
 }
 

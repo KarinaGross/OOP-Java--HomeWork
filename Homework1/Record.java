@@ -1,19 +1,19 @@
 public class Record {
-    private Person person1;
-    private Person person2;
+    private Human person1;
+    private Human person2;
     private String relation;
 
-    public Record(Person person1, String relation, Person person2) {
+    public Record(Human person1, String relation, Human person2) {
         this.person1 = person1;
         this.person2 = person2;
         this.relation = relation;
     }
 
-    public Person getPerson1() {
+    public Human getPerson1() {
         return person1;
     }
 
-    public Person getPerson2() {
+    public Human getPerson2() {
         return person2;
     }
 
