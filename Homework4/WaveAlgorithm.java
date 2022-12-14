@@ -11,7 +11,43 @@ public class WaveAlgorithm {
         this.field = field;
     }
 
-    public PlayingField shortestWay(Points start, Points finish) {
+    // public PlayingField shortestWay(Points start, Points finish) {
+    //     this.queue = new ArrayDeque<>();
+    //     Points currentPoint;
+        
+    //     field.setPoint(start, 1);
+    //     queue.add(start);
+    //     int count;
+
+    //     while (!queue.isEmpty()) {
+    //         currentPoint = queue.pop();
+    //         count = field.getCountPoint(currentPoint.getX(), currentPoint.getY());
+    //         for (int[] move : moves) {
+    //             if (field.getCountPoint(currentPoint.getX() + move[0], currentPoint.getY() + move[1]) == 0) {
+    //                 Points nextPoint = new Points(currentPoint.getX() + move[0], currentPoint.getY() + move[1]);
+    //                 field.setPoint(nextPoint, count + 1);
+    //                 queue.add(nextPoint);
+    //             }
+    //         }
+    //     }
+
+    //     int finishCount = field.getCountPoint(finish.getX(), finish.getY());
+    //     currentPoint = finish;
+    //     while (finishCount > 1) {
+    //         for (int[] move : moves) {
+    //             if (finishCount - field.getCountPoint(currentPoint.getX() + move[0],
+    //                     currentPoint.getY() + move[1]) == 1) {
+    //                 finishCount--;
+    //                 field.setPoint(currentPoint, -2);
+    //                 currentPoint.setX(currentPoint.getX() + move[0]);
+    //                 currentPoint.setY(currentPoint.getY() + move[1]);
+    //             }
+    //         }
+    //     }
+    //     return field;
+    // }
+
+    public PlayingField markingField(Points start) {
         this.queue = new ArrayDeque<>();
         Points currentPoint;
         
@@ -25,16 +61,17 @@ public class WaveAlgorithm {
             for (int[] move : moves) {
                 if (field.getCountPoint(currentPoint.getX() + move[0], currentPoint.getY() + move[1]) == 0) {
                     Points nextPoint = new Points(currentPoint.getX() + move[0], currentPoint.getY() + move[1]);
-                    // nextPoint.setX(currentPoint.getX() + move[0]);
-                    // nextPoint.setY(currentPoint.getY() + move[1]);
                     field.setPoint(nextPoint, count + 1);
                     queue.add(nextPoint);
                 }
             }
         }
+        return field;
+    }
 
+    public PlayingField shortestPath(Points finish) {
         int finishCount = field.getCountPoint(finish.getX(), finish.getY());
-        currentPoint = finish;
+        Points currentPoint = finish;
         while (finishCount > 1) {
             for (int[] move : moves) {
                 if (finishCount - field.getCountPoint(currentPoint.getX() + move[0],
