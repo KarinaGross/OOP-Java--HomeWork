@@ -14,33 +14,38 @@ public class FilmFinder {
       public String getAllInfoBy(int id) {
         Cinema c = db.films.get(id - 1);
     
-        return String.format("%d %s %s %s",
+        return String.format("%d. '%s', жанр: %s, кинокомпания: %s, режиссер: %s",
             c.id,
             c.name,
             db.genres.get(c.genreId - 1).name,
-            db.studios.get(c.creatorId - 1).titleName);
+            db.studios.get(c.studioId - 1).name,
+            db.directors.get(c.directorId - 1).name);
       }
     
       DataBase init() {
         db = new DataBase();
-        Cinema c1 = new Cinema(1, "РўСЊРјР°", 1, 1);
-        Cinema c2 = new Cinema(2, "РЎРІРµС‚", 1, 2);
-        Cinema c3 = new Cinema(3, "РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё РѕС…РѕС‚С‹...", 3, 4);
-        Cinema c4 = new Cinema(4, "Р§РµР»РѕРІРµРє РїР°СѓРє", 3, 3);
+        Cinema c1 = new Cinema(1, "Тайна Коко", 1, 1, 1);
+        Cinema c2 = new Cinema(2, "Белоснежка и семь гномов", 2, 2, 1);
+        Cinema c3 = new Cinema(3, "Титаник", 3, 3, 2);
+        Cinema c4 = new Cinema(4, "Ла-Ла Ленд", 3, 4, 3);
     
         db.films.add(c1);
         db.films.add(c2);
         db.films.add(c3);
         db.films.add(c4);
     
-        db.genres.add(new Genre(1, "РЈР¶Р°СЃС‹"));
-        db.genres.add(new Genre(2, "Р”СЂР°РјР°"));
-        db.genres.add(new Genre(3, "РљРѕРјРµРґРёСЏ"));
-        FilmCreatorFactory pf = new FilmCreatorFactory();
-        db.addStudios(pf.getFilmProducer("Р›РµРЅС„РёР»СЊРј"));
-        db.addStudios(pf.getFilmProducer("РњР°СЂРІРµР»"));
-        db.addStudios(pf.getFilmProducer("РњРѕСЃС„РёР»СЊРј"));
-        db.addStudios(pf.getFilmProducer("DC"));
+        db.genres.add(new Genre(1, "мультфильм"));
+        db.genres.add(new Genre(2, "боевик"));
+        db.genres.add(new Genre(3, "мелодрамма"));
+        
+        db.addStudios(new Studio(1, "Disney"));
+        db.addStudios(new Studio(2, "Paramount Pictures"));
+        db.addStudios(new Studio(3, "Summit Entertainment"));
+
+        db.directors.add(new Director(1, "Эдриан Молина"));
+        db.directors.add(new Director(2, "Дэвид Хэнд"));
+        db.directors.add(new Director(3, "Джеймс Кэмерон"));
+        db.directors.add(new Director(4, "Дэмьен Шазелл"));
     
         return db;
       }

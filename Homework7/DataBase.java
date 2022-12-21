@@ -8,7 +8,7 @@ public class DataBase {
     ArrayList<Genre> genres = new ArrayList<>();
     ArrayList<Director> directors = new ArrayList<>();
 
-    // public void addStudios(Studio producer) {
-    //     studios.add(producer);
-    // }
+    public void addStudios(Studio producer) {
+        studios.add(producer);
+    }
 }
