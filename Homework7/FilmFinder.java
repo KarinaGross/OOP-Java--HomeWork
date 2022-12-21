@@ -7,7 +7,7 @@ public class FilmFinder {
     
       DataBase db;
     
-      public DataBase getDb() {
+      public DataBase getAllFilms() {
         return db;
       }
     

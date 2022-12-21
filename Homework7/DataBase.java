@@ -11,4 +11,13 @@ public class DataBase {
     public void addStudios(Studio producer) {
         studios.add(producer);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Cinema film : films) {
+            sb.append(String.format("%d. '%s'\n", film.id, film.name));
+        }
+        return sb.toString();
+    }
 }
